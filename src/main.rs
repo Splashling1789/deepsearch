@@ -1,9 +1,7 @@
-use std::env::join_paths;
-use std::fs;
 use std::fs::{metadata, read_dir};
 use std::path::PathBuf;
 macro_rules! help {
-    () => {println!("Usage: deepsearch (file) [path, default:\"/\"] [parameters]\n-i, --ignore-hidden: ignores hidden directories such as \".local\"\n-v, --verbose: prints the process\n-c, --show-count: shows the number of files read")};
+    () => {println!("Usage: deepsearch (file) [parameters]\n-p, --path (path): specify a start path.\n-i, --ignore-hidden: ignores hidden directories such as \".local\"\n-v, --verbose: prints the process\n-c, --show-count: shows the number of files read")};
 }
 
 fn deep_search(dir: &PathBuf,  file: &String, ignore_hidden: bool, verbose: bool, show_count: bool, count: &mut u32) ->  Option<PathBuf> {
